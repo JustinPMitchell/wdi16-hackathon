@@ -10,6 +10,7 @@ import Login from './auth/Login.js';
 import Profile from './Profile.js';
 import Signup from './auth/Signup.js';
 import Search from './Search.js';
+import AddLocation from './location/AddLocation.js';
 
 class App extends Component {
   constructor(props){
@@ -85,6 +86,8 @@ class App extends Component {
                 () => (<Profile user={this.state.user} setFlash={this.setFlash} />)} />
                   <Route path="/search" component={
                 () => (<Search user={this.state.user} setFlash={this.setFlash} />)} />
+              <Route path="/add" component={
+                () => (<AddLocation user={this.state.user} setFlash={this.setFlash} />)} />    
             </div>
           </div>
         </Router>
