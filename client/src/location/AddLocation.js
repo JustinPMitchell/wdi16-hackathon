@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
@@ -34,8 +35,8 @@ class AddLocation extends Component {
       lat: this.state.lat,
       lng: this.state.lng
     }).then(result => {
-      localStorage.setItem('mernToken', result.data.token);
       this.props.updateLocation();
+      this.props.history.push("/")
     }).catch(error => {
       console.log(error.response);
       this.props.setFlash('error', 'Failure message here');

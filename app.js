@@ -9,6 +9,8 @@ var app = express();
 // Mongoose stuff
 var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/MERN', {useMongoClient: true});
+//added
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/shredlocations', {useMongoClient: true});
 
 // Set up middleware
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -25,6 +27,8 @@ app.use(function(req, res, next) {
 
 // Controllers
 app.use('/auth', require('./routes/auth'));
+//add
+app.use('/location', require('./routes/location'));
 
 app.get('*', function(req, res, next) {
 	res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
